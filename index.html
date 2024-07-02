@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fce4ec; /* Màu nền hồng nhạt */
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #d81b60; /* Màu chữ hồng đậm */
+            margin-bottom: 20px;
+            margin-top: 50px;
+            position: relative; /* Thêm vị trí tương đối để căn chỉnh sticker */
+        }
+        .btn-container {
+            position: relative;
+            background-color: #f8bbd0; /* Màu nền hồng nhạt cho container */
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .btn-container:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            background-color: #d81b60; /* Màu nền hồng đậm cho nút */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, padding 0.3s ease, font-size 0.3s ease;
+        }
+        button:hover {
+            background-color: #ad1457; /* Màu nền hồng tối hơn khi hover */
+        }
+        #no {
+            z-index: 10;
+            position: absolute;
+            transition: all 0.3s;
+        }
+        .sticker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px; /* Điều chỉnh kích thước của sticker */
+            height: auto;
+        }
+        #sticker1 {
+            top: -120px; /* Điều chỉnh vị trí top để căn chỉnh sticker đầu tiên */
+        }
+        #sticker2 {
+            top: -220px; /* Điều chỉnh vị trí top để căn chỉnh sticker thứ hai */
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>
+            Làm người yêu mình nha! ♥ ♥ 
+            <img id="sticker1" class="sticker" src="https://media.giphy.com/media/OVnyNbggaTxivx6wbH/giphy.gif?cid=82a1493bc74o03phpz56edd53lmot4mnpwk8elo1071jfn62&ep=v1_stickers_trending&rid=giphy.gif&ct=s" alt="Sticker 1">
+            <img id="sticker2" class="sticker" src="https://media.giphy.com/media/gdspgdOIV1HxhnxQOH/giphy.gif?cid=82a1493b4rlk7lo48y5cmtg563rwvdg90i208q08i6bq0pvo&ep=v1_stickers_trending&rid=giphy.gif&ct=s" alt="Sticker 2">
+        </h1>
+        <div id="yes" class="btn-container">
+            <button type="button" id="yes-btn">Okie luôn</button>
+        </div>
+        <div id="no" class="btn-container">
+            <button type="button" id="no-btn">Không</button>
+        </div>
+    </main>
+    <script>
+        const noBtn = document.getElementById('no-btn');
+        const yesBtn = document.getElementById('yes-btn');
+
+        let noBtnFontSize = 16;
+        let noBtnPadding = 10;
+        let yesBtnFontSize = 16;
+        let yesBtnPadding = 10;
+
+        noBtn.addEventListener('mouseover', () => {
+            noBtnFontSize *= 0.9;
+            noBtnPadding *= 0.9;
+            yesBtnFontSize *= 1.1;
+            yesBtnPadding *= 1.1;
+
+            noBtn.style.fontSize = `${noBtnFontSize}px`;
+            noBtn.style.padding = `${noBtnPadding}px ${noBtnPadding * 2}px`;
+            yesBtn.style.fontSize = `${yesBtnFontSize}px`;
+            yesBtn.style.padding = `${yesBtnPadding}px ${yesBtnPadding * 2}px`;
+        });
+
+        const no = document.getElementById('no');
+
+        no.addEventListener('mouseover', () => {
+            const x = Math.floor(Math.random() * (window.innerWidth - 150));
+            const y = Math.floor(Math.random() * (window.innerHeight - 150));
+
+            no.style.left = `${x}px`;
+            no.style.top = `${y}px`;
+        });
+
+        yesBtn.addEventListener('click', () => {
+            const width = 400;
+            const height = 400;
+            const left = (screen.width / 2) - (width / 2);
+            const top = (screen.height / 2) - (height / 2);
+            window.open('okie.html', 'newwindow', `width=${width},height=${height},top=${top},left=${left}`);
+        });
+    </script>
+</body>
+</html>

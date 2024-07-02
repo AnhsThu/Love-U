@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okie Popup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffebee;
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(45deg, #fce4ec, #f8bbd0);
+        }
+        .popup-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 90%;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        button {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #c2185b;
+            transform: scale(1.1);
+        }
+        img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            font-size: 24px;
+            color: #d81b60;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup-content">
+        <img src="https://media.giphy.com/media/sThlS7PKkYKXfZkeDE/giphy.gif?cid=82a1493bqs8aybdrmyj6b2wa7db26ognf07m3sp35aw6rhms&ep=v1_stickers_trending&rid=giphy.gif&ct=s" alt="Love">
+        <p>I love U!</p>
+        <p>Mình cùng hẹn hò nhé ♥</p>
+        <button onclick="window.close()">Đóng</button>
+    </div>
+</body>
+</html>
