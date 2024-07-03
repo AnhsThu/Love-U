@@ -123,7 +123,7 @@
         const noBtnContents = ["Không", "Đừng mà :<", "Không cho nhấn"];
         let noBtnContentIndex = 0;
 
-        const yesBtnContents = ["Đồng ý", "Chấp nhận điii", "Yêu cậu nhất"];
+        const yesBtnContents = ["Đồng ý", "Chấp nhận điii", "Yêu cậu nhất ♥"];
         let yesBtnContentIndex = 0;
 
         function changeNoBtnContent() {
@@ -182,7 +182,9 @@
             });
             noBtn.addEventListener('click', changeNoBtnContent);// Thêm sự kiện click cho nút "Không" trên thiết bị di động
             noBtn.addEventListener('click', changeYesBtnContent);
-            noBtn.addEventListener('click', resizeBtnYess);;
+            noBtn.addEventListener('click', resizeBtnYess);
+            noBtn.addEventListener('click', moveNoButton);
+
         } else {
             // Logic hiện tại cho máy tính để bàn
             yesBtn.addEventListener('click', () => {
