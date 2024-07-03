@@ -157,6 +157,7 @@
             yesBtn.style.fontSize = `${yesBtnFontSize}px`;
             yesBtn.style.padding = `${yesBtnPadding}px ${yesBtnPadding * 2}px`;
         }
+
         function resizeBtnYess() {
             yesBtnFontSize *= 1.1;
             yesBtnPadding *= 1.1;
@@ -164,6 +165,7 @@
             yesBtn.style.fontSize = `${yesBtnFontSize}px`;
             yesBtn.style.padding = `${yesBtnPadding}px ${yesBtnPadding * 2}px`;
         }
+
         // Kiểm tra thiết bị
         function isMobileDevice() {
             return /Mobi|Android/i.test(navigator.userAgent);
@@ -180,10 +182,11 @@
                 const top = (screen.height / 2) - (height / 2);
                 window.open('okie.html', 'newwindow', `width=${width},height=${height},top=${top},left=${left}`);
             });
-            noBtn.addEventListener('click', changeNoBtnContent);// Thêm sự kiện click cho nút "Không" trên thiết bị di động
+            noBtn.addEventListener('click', changeNoBtnContent);
             noBtn.addEventListener('click', changeYesBtnContent);
             noBtn.addEventListener('click', resizeBtnYess);
             noBtn.addEventListener('click', moveNoButton);
+            noBtn.addEventListener('touchstart', moveNoButton);
 
         } else {
             // Logic hiện tại cho máy tính để bàn
@@ -199,6 +202,7 @@
         }
 
         no.addEventListener('mouseover', moveNoButton);
+
     </script>
 </body>
 
