@@ -90,6 +90,13 @@
             top: -220px;
             /* Điều chỉnh vị trí top để căn chỉnh sticker thứ hai */
         }
+
+        .message {
+            position: absolute;
+            font-size: 14px;
+            color: #d81b60;
+            font-family: 'Dancing Script', cursive;
+        }
     </style>
 </head>
 
@@ -139,11 +146,16 @@
         const no = document.getElementById('no');
 
         function moveNoButton() {
+            const prevX = no.style.left;
+            const prevY = no.style.top;
+
             const x = Math.floor(Math.random() * (window.innerWidth - 150));
             const y = Math.floor(Math.random() * (window.innerHeight - 150));
 
             no.style.left = `${x}px`;
             no.style.top = `${y}px`;
+
+            showMessage(prevX, prevY);
         }
 
         function resizeButtons() {
@@ -164,6 +176,18 @@
 
             yesBtn.style.fontSize = `${yesBtnFontSize}px`;
             yesBtn.style.padding = `${yesBtnPadding}px ${yesBtnPadding * 2}px`;
+        }
+
+        function showMessage(x, y) {
+            const message = document.createElement('span');
+            message.className = 'message';
+            message.textContent = 'Đừng đuổi theo mà !';
+            message.style.left = x;
+            message.style.top = y;
+            document.body.appendChild(message);
+            setTimeout(() => {
+                message.remove();
+            }, 500); // Xóa dòng chữ sau 0.5 giây
         }
 
         // Kiểm tra thiết bị
@@ -189,7 +213,7 @@
             noBtn.addEventListener('touchstart', moveNoButton);
 
         } else {
-            // Logic hiện tại cho máy tính để bàn
+            // Logic cho máy tính
             yesBtn.addEventListener('click', () => {
                 const width = 400;
                 const height = 400;
